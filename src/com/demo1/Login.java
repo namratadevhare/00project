@@ -35,28 +35,34 @@ public class Login {
 				rs.getString("password");
 
 				System.out.println("login successfull.." );
-
-			} 
+			}
 			else {
 				System.out.println("login  IS NOT successfull.. WRONG USERNAME & PASSWORD");
 				System.out.println("register if you have not at first");
+			
 				Scanner sc2=new Scanner(System.in);
 				System.out.println("enter Y IF YOU ALREDY RGT and N  TO REGT AND PROCEED");
-				String Y=sc2.next();
-				String N=sc2.next();
-				String choice=Y;
+			
+			String Y=sc2.next();
+			//String N=sc2.next();
+			System.out.println(Y);
+				String choice=null;
 				//String choice=N;
-				if(choice!=N) {
+				 if( choice==Y) {
 					System.out.println("please try login again");
 					Login obj1 = new Login();
 					obj1.getLoginDetails();	
-				}
+				 }
 				else {
 					System.out.println("please registrer here");
 					Registration_form nmn=new Registration_form();
 					nmn.RegistrationDetails();
-				}
-			}
+					System.out.println("now login again");
+					Login obj1 = new Login();
+					obj1.getLoginDetails();
+					
+					
+			}}
 			//System.out.println("DATA RECORDED SUCESSFULLY");
 			con1.close();
 			sta2.close();
@@ -67,7 +73,7 @@ public class Login {
 		}
 
 	}public static void main(String[] args) throws SQLException {
-		Login obj1=new Login();
-		obj1.getLoginDetails();
+		Login obj0=new Login();
+		obj0.getLoginDetails();
 	}
 }
